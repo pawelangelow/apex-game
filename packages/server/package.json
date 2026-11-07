@@ -1,0 +1,20 @@
+{
+  "name": "@apex/server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "DATABASE_URL=postgres://apex:apex@localhost:5432/apex tsx watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/static": "^10.1.10",
+    "fastify": "^5.12.8",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "tsx": "^4.23.15"
+  }
+}

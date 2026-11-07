@@ -6,7 +6,7 @@ Update it in the same commit as any structural change (see CLAUDE.md, Rule 2).
 ## Stack
 
 - **Language:** TypeScript everywhere, on Node.js.
-- **Repo:** npm workspaces monorepo. Packages: `game` (pure game logic, no dependencies), `server`, `client`, `sim`.
+- **Repo:** npm workspaces monorepo. Packages: `server`, `client`; `game` (pure game logic, no dependencies) and `sim` are added with the first game logic.
 - **Backend:** Fastify, WebSockets for real-time (taxi map, street race lobbies, notifications).
 - **Database:** PostgreSQL with Drizzle ORM. Timers and scheduled events via pg-boss (no Redis).
 - **Frontend:** React + Vite, shipped as a PWA with Web Push.
@@ -14,13 +14,28 @@ Update it in the same commit as any structural change (see CLAUDE.md, Rule 2).
 - **Tests:** Vitest.
 - **Deployment:** Docker Compose (app, Postgres, Caddy for HTTPS).
 
-How to run and how to test: _added once the project is scaffolded._
+## Commands
+
+| Task | Command |
+| --- | --- |
+| Install | `npm install` |
+| Start dev database | `docker compose -f compose.dev.yml up -d` |
+| Dev (server :3000 + client with `/api` proxy) | `npm run dev` |
+| Typecheck | `npm run typecheck` |
+| Test | `npm test` |
+| Build | `npm run build` |
+| Deploy / backups | see [deploy.md](deploy.md) |
 
 ## Directories
 
-| Path    | Owns                                                       |
-| ------- | ---------------------------------------------------------- |
-| `docs/` | Design docs: [game.md](game.md) (constitution), this map |
+| Path | Owns |
+| --- | --- |
+| `docs/` | Design docs: [game.md](game.md) (constitution), this map, [deploy.md](deploy.md) |
+| `packages/server/` | Fastify API; entry `src/index.ts`. In production also serves the built client (`CLIENT_DIST`) |
+| `packages/client/` | React + Vite app; entry `src/main.tsx` |
+| `scripts/` | `deploy.sh`, `backup.sh` |
+| `Dockerfile`, `compose.yml`, `Caddyfile` | Production stack |
+| `compose.dev.yml` | Dev database only |
 
 ## Systems → code
 
