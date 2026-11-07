@@ -29,6 +29,22 @@ game.md describes what the game *does*, not how the code does it. Keep it that w
 - Solo project. Work directly on `main`. Do not create branches, worktrees or PRs unless the user explicitly asks.
 - Commit only when the user asks. Keep commits small and focused; a commit that changes a mechanic includes the game.md update.
 
+## Coding
+
+- Write the minimum code that solves the problem. No speculative features, no abstractions for single-use code, no configurability that was not asked for. Exception: game numbers always go in config (see Rule 1); that is required, not speculative.
+- Do not add error handling for impossible scenarios.
+- Touch only what the task requires. Do not "improve" adjacent code, comments or formatting.
+- Match the existing style in a file, even if you would write it differently.
+- If you notice unrelated dead code or bugs, mention them, but do not fix them unprompted.
+- Clean up orphans your changes create, such as unused imports or variables. Do not remove pre-existing dead code unless asked.
+
+## Quality
+
+- Do not bypass hooks or checks with `--no-verify`.
+- Do not ignore errors to make code compile.
+- Do not skip, delete or weaken tests to make a change pass.
+- Stage only files that belong to the task. Leave unrelated uncommitted changes alone.
+
 ## Definition of done
 
 Before reporting a task as finished, check:
