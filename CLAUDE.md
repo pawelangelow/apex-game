@@ -28,6 +28,7 @@ game.md describes what the game *does*, not how the code does it. Keep it that w
 
 - Solo project. Work directly on `main`. Do not create branches, worktrees or PRs unless the user explicitly asks.
 - Commit only when the user asks. Keep commits small and focused; a commit that changes a mechanic includes the game.md update.
+- No attribution lines in commit messages: no `Co-Authored-By:` trailers, no "Generated with" footers.
 
 ## Coding
 
